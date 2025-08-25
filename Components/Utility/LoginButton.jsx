@@ -2,7 +2,7 @@ import React from 'react';
 
 const LoginButton = ({ onClick, isLoading = false, className = '' }) => {
     const baseClasses =
-        'flex items-center justify-center space-x-2 px-6 py-3 border border-gray-600 rounded-lg text-gray-300 hover:border-sky-500 hover:text-sky-400 transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50';
+        'flex items-center justify-center space-x-2 px-6 py-3 text-sky-600 border border-blue-900 dark:border-gray-600 rounded-lg dark:text-gray-300 hover:border-sky-500 hover:text-sky-400 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50';
 
     const disabledClasses = 'disabled:opacity-50 disabled:cursor-not-allowed';
 

@@ -12,9 +12,9 @@ const Navlinks = () => {
     ];
 
     return (
-        <div className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+        <div className="hidden md:flex items-center space-y-4  md:space-y-0 md:space-x-6">
             {links.map((link) => (
-                <a key={link.url} href={link.url} className="text-white text-lg hover:-translate-y-1 transition duration-200 hover:text-sky-400">
+                <a key={link.url} href={link.url} className="dark:text-white text-black text-lg hover:-translate-y-1 transition duration-200 hover:text-sky-500 dark:hover:text-sky-400">
                     {link.label}
                 </a>
             ))}
@@ -22,4 +22,4 @@ const Navlinks = () => {
     )
 }
 
-export default Navlinks
+export default Navlinks;

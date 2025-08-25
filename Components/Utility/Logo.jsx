@@ -3,7 +3,7 @@ import React from 'react'
 const Logo = () => {
   return (
     <div className='flex items-center'>
-      <span className='text-2xl font-bold text-white'>Nova Coders</span>
+      <span className='text-lg md:text-xl lg:text-2xl font-bold text-black dark:text-white'>Nova Coders</span>
     </div>
   )
 }
