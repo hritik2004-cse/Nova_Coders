@@ -9,13 +9,10 @@ import { Button } from "@/components/ui/button"
 export function ModeToggle() {
     const { theme, setTheme } = useTheme()
 
-    // We need to ensure the component is mounted before checking the theme
-    // to avoid a hydration mismatch between the server and client.
     const [mounted, setMounted] = React.useState(false)
     React.useEffect(() => setMounted(true), [])
 
     if (!mounted) {
-        // Render a placeholder or null on the server to prevent mismatch
         return <div className="h-10 w-10" />;
     }
 

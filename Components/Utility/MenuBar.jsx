@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import GradientButton from './GradientButton';
 import LoginButton from './LoginButton';
 import Social from './Social';
-import Logo from './Logo'; // Importing the Logo component
+import Logo from './Logo';
 
 const MenuBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +38,6 @@ const MenuBar = () => {
                     {/* Menu Header */}
                     <div className="flex justify-between items-center mb-12">
                         <Logo className='text-center' />
-                        {/* The close button is already outside, but you could place one here too if needed */}
                     </div>
 
                     {/* Navigation Links */}
@@ -48,7 +47,7 @@ const MenuBar = () => {
                                 key={link.url}
                                 href={link.url}
                                 className="w-full py-4 text-center text-xl font-semibold text-gray-700 dark:text-gray-300 transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-[#112240] rounded-lg"
-                                onClick={() => setIsOpen(false)} // Close menu on link click
+                                onClick={() => setIsOpen(false)}
                             >
                                 {link.label}
                             </a>

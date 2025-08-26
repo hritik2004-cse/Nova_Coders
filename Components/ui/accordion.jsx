@@ -19,7 +19,7 @@ const AccordionItem = React.forwardRef(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
     className={cn(
-      "border-b border-gray-200 dark:border-[#233554]", // Light and Dark border colors
+      "border-b border-gray-200 dark:border-[#233554]",
       className
     )}
     {...props}
@@ -51,7 +51,7 @@ const AccordionContent = React.forwardRef(({ className, children, ...props }, re
     {...props}
   >
     <div className={cn(
-      "pt-0 pb-4 text-gray-600 dark:text-[#8892b0]", // Light and Dark text colors
+      "pt-0 pb-4 text-gray-600 dark:text-[#8892b0]",
       className
     )}>
       {children}

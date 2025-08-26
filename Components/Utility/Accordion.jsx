@@ -6,7 +6,6 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// --- FAQ Data ---
 const faqData = [
     {
         id: "item-1",
