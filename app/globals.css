@@ -1,6 +1,8 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss/utilities";
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -45,15 +47,6 @@ body {
   background-color: var(--background);
   color: var(--text-col);
 }
-
-.btn-primary {
-            background: linear-gradient(90deg, #3b82f6, #a855f7);
-            transition: all 0.3s ease;
-        }
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
-        }
 .model-overlay{
   width: 100%;
   height: 100%;

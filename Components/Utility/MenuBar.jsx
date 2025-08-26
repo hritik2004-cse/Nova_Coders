@@ -1,15 +1,14 @@
 "use client"
 import React, { useState } from 'react';
-import "@/app/globals.css";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import GradientButton from './GradientButton';
 import LoginButton from './LoginButton';
 import Social from './Social';
+import Logo from './Logo'; // Importing the Logo component
 
 const MenuBar = () => {
-
-    let [modalStatus, setModalStatus] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const links = [
         { label: "About", url: "/about" },
@@ -22,32 +21,55 @@ const MenuBar = () => {
 
     return (
         <div className='block md:hidden'>
-            <button className='modelicon' onClick={() => setModalStatus(!modalStatus)}>
-                {modalStatus ?
-                    <span><IoMdClose className='h-full w-full' /></span> :
-                    <span><FaBars className='h-full w-full' /></span>
-                }
+            {/* Menu Toggle Button */}
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="relative z-[100] text-gray-800 dark:text-gray-200"
+                aria-label="Toggle menu"
+            >
+                {isOpen ? <IoMdClose size={28} /> : <FaBars size={24} />}
             </button>
-            <div className={`menu ${modalStatus ? "active" : ""}`}>
-                <div className="flex flex-col items-center justify-center mt-6 ">
-                    {links.map((link) => (
-                        <a key={link.url} href={link.url} className="text-white text-lg font-bold py-3 hover:bg-sky-900 w-full text-center transition duration-200 hover:text-sky-400">
-                            {link.label}
-                        </a>
-                    ))}
-                </div>
-                <div className="mt-8 w-[90%] mx-auto">
-                    <a href="">
-                        <GradientButton className='w-full mx-auto'>Join Now</GradientButton>
-                    </a>
-                    <LoginButton className='w-full mt-5 mx-auto' />
-                </div>
-                <div className="">
-                    <Social variant='navbar' containerClassName="flex justify-center items-center space-x-4 my-6" />
+
+            {/* Full-screen Menu Overlay */}
+            <div
+                className={`fixed inset-0 z-[99] h-screen w-full transform bg-white dark:bg-[#0A192F] transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
+            >
+                <div className="flex flex-col h-full p-6">
+                    {/* Menu Header */}
+                    <div className="flex justify-between items-center mb-12">
+                        <Logo className='text-center' />
+                        {/* The close button is already outside, but you could place one here too if needed */}
+                    </div>
+
+                    {/* Navigation Links */}
+                    <nav className="flex flex-col items-center flex-grow">
+                        {links.map((link) => (
+                            <a
+                                key={link.url}
+                                href={link.url}
+                                className="w-full py-4 text-center text-xl font-semibold text-gray-700 dark:text-gray-300 transition-colors duration-300 hover:bg-gray-100 dark:hover:bg-[#112240] rounded-lg"
+                                onClick={() => setIsOpen(false)} // Close menu on link click
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </nav>
+
+                    {/* Action Buttons & Socials */}
+                    <div className="mt-auto flex flex-col items-center gap-4">
+                        <GradientButton href="#" size="lg" className="w-full text-center max-w-xs">
+                            Join Now
+                        </GradientButton>
+                        <LoginButton className="w-full max-w-xs" />
+                        <Social
+                            variant='navbar'
+                            containerClassName="flex justify-center items-center space-x-4 mt-6"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default MenuBar
+export default MenuBar;
