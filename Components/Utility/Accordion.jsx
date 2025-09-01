@@ -4,7 +4,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/Components/ui/accordion";
 
 const faqData = [
     {
@@ -56,28 +56,48 @@ const faqData = [
 
 const Faq = () => {
     return (
-        <section className="py-20">
-            <div className="container mx-auto px-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-sky-400 dark:to-[#64ffda] text-transparent bg-clip-text">
+        <section className="py-16 lg:py-24" style={{ backgroundColor: 'var(--bg)' }}>
+            <div className="container mx-auto px-4 sm:px-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 px-4"
+                    style={{ color: 'var(--text)' }}>
                     Frequently Asked Questions
                 </h2>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full max-w-[700px] mx-auto"
-                    defaultValue="item-1"
-                >
-                    {faqData.map((item) => (
-                        <AccordionItem value={item.id} key={item.id}>
-                            <AccordionTrigger>{item.question}</AccordionTrigger>
-                            <AccordionContent>
-                                <p className="text-balance">
-                                    {item.answer}
-                                </p>
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
+                <div className="w-full max-w-[700px] mx-auto px-4 sm:px-0">
+                    <Accordion
+                        type="single"
+                        collapsible
+                        className="w-full space-y-4"
+                        defaultValue="item-1"
+                    >
+                        {faqData.map((item) => (
+                            <AccordionItem 
+                                value={item.id} 
+                                key={item.id}
+                                className="rounded-lg px-6 py-2 border transition-all duration-200"
+                                style={{ 
+                                    backgroundColor: 'var(--bg-light)',
+                                    borderColor: 'var(--highlight)',
+                                    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+                                }}
+                            >
+                                <AccordionTrigger 
+                                    className="transition-colors duration-200"
+                                    style={{ 
+                                        color: 'var(--text)',
+                                    }}
+                                >
+                                    {item.question}
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    <p className="text-balance leading-relaxed"
+                                        style={{ color: 'var(--text-secondary)' }}>
+                                        {item.answer}
+                                    </p>
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
             </div>
         </section>
     )

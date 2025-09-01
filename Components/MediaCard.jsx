@@ -1,32 +1,30 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 
 export default function MediaCard() {
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-                sx={{ height: 140 }}
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="green iguana"
+        <div className="max-w-sm bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transition-colors duration-300">
+            <div 
+                className="h-35 bg-cover bg-center" 
+                style={{ backgroundImage: "url('/static/images/cards/contemplative-reptile.jpg')" }}
+                aria-label="green iguana"
             />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+            <div className="p-6">
+                <h5 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
                     Lizard
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                </h5>
+                <p className="text-slate-600 dark:text-slate-300 text-sm">
                     Lizards are a widespread group of squamate reptiles, with over 6,000
                     species, ranging across all continents except Antarctica
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-            </CardActions>
-        </Card>
+                </p>
+            </div>
+            <div className="px-6 pb-6 flex gap-2">
+                <button className="px-3 py-1 text-sm text-blue-600 dark:text-sky-400 hover:text-blue-800 dark:hover:text-sky-300 transition-colors">
+                    Share
+                </button>
+                <button className="px-3 py-1 text-sm text-blue-600 dark:text-sky-400 hover:text-blue-800 dark:hover:text-sky-300 transition-colors">
+                    Learn More
+                </button>
+            </div>
+        </div>
     );
 }
