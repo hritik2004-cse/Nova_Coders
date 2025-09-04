@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /backend/
+Disallow: /_next/
+Disallow: /scripts/
+
+# Allow public pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /projects
+
+# Sitemap location
+Sitemap: https://novacoders.com/sitemap.xml

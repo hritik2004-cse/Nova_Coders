@@ -559,6 +559,7 @@ For detailed setup guides and troubleshooting, check out our comprehensive docum
 - **[📧 EmailJS Template Setup](./EMAILJS_TEMPLATE_SETUP.md)** - Email template configuration
 - **[🛠️ EmailJS Troubleshooting](./EMAILJS_TROUBLESHOOTING.md)** - Common issues and solutions
 - **[🎨 Email Template Reference](./UPDATED_EMAILJS_TEMPLATE.md)** - Dark theme email template
+- **[🎯 Icon Setup Guide](./ICON_SETUP.md)** - Favicon and app icon configuration for all platforms
 
 ---
 

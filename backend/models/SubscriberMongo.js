@@ -76,7 +76,7 @@ const subscriberSchema = new mongoose.Schema({
 });
 
 // Indexes for better query performance
-subscriberSchema.index({ email: 1 });
+// Note: email index is already created by unique: true in schema
 subscriberSchema.index({ status: 1 });
 subscriberSchema.index({ subscribedAt: -1 });
 subscriberSchema.index({ source: 1 });

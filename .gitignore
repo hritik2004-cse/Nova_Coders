@@ -42,6 +42,47 @@ test-*.html
 # env files (can opt-in for committing if needed)
 .env*
 
+# Admin and security sensitive files
+*ADMIN*.md
+*RBAC*.md
+*SUPER_ADMIN*.md
+MANUAL_SUPER_ADMIN.md
+ADMIN_PANEL_README.md
+RBAC_SETUP.md
+RBAC_SETUP_GUIDE.md
+RBAC_SUCCESS.md
+ENVIRONMENT_GUIDE.md
+
+# Route Documentation - Contains Admin Routes
+ROUTES.md
+
+# Issues Documentation - Contains Environment Variables and Secrets
+ISSUES_FIXED.md
+
+# Security scripts and configs
+create-super-admin.js
+**/admin-setup*
+**/rbac-config*
+**/auth-config*
+
+# Development and testing files
+test-*.js
+*-test.js
+debug.log
+generate-*.js
+
+# Documentation files (development only)
+*_SETUP.md
+*_TROUBLESHOOTING.md
+DOCS_INDEX.md
+PERFORMANCE_OPTIMIZATION.md
+
+# VS Code settings (user-specific)
+.vscode/
+
+# Flowbite (using shadcn instead)
+.flowbite-react/
+
 # vercel
 .vercel
 
