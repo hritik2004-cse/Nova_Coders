@@ -39,8 +39,21 @@ debug.log
 test-*.html
 *-test.html
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files (ALL environment files are blocked - NEVER commit these)
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
+.env.test
+.env.*
+**/.env
+**/.env.*
+*.env
+environment.js
+config.js
+secrets.json
+credentials.json
 
 # MongoDB database files (never commit database files)
 /data/
