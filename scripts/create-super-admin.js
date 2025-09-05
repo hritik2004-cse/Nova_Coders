@@ -28,15 +28,21 @@ async function createSuperAdmin() {
             return;
         }
         
-        // Create super admin
+        // Create super admin with environment variables
         const superAdminData = {
             username: 'superadmin',
-            email: 'admin@novacoders.com',
-            password: 'admin123', // Change this!
+            email: process.env.DEFAULT_SUPER_ADMIN_EMAIL || 'change@example.com',
+            password: process.env.DEFAULT_SUPER_ADMIN_PASSWORD || 'CHANGE_THIS_PASSWORD',
             firstName: 'Super',
             lastName: 'Admin',
             department: 'Operations'
         };
+        
+        // Warn if using default credentials
+        if (!process.env.DEFAULT_SUPER_ADMIN_EMAIL || !process.env.DEFAULT_SUPER_ADMIN_PASSWORD) {
+            console.warn('⚠️  WARNING: Using default credentials. Please set environment variables!');
+            console.warn('⚠️  Set DEFAULT_SUPER_ADMIN_EMAIL and DEFAULT_SUPER_ADMIN_PASSWORD in .env.local');
+        }
         
         console.log('Creating super admin with data:', {
             username: superAdminData.username,

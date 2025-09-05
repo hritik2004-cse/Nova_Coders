@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Logo from './Utility/Logo';
 import Social from './Utility/Social';
 
@@ -18,25 +19,25 @@ const AppFooter = () => {
                         <div>
                             <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-4">Community</h3>
                             <ul className="space-y-3">
-                                <li><a href="/about" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a></li>
-                                <li><a href="/events" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Events</a></li>
-                                <li><a href="/blog" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a></li>
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Careers</a></li>
+                                <li><Link href="/about" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</Link></li>
+                                <li><Link href="/events" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Events</Link></li>
+                                <li><Link href="/blog" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</Link></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Careers</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-4">Help Center</h3>
                             <ul className="space-y-3">
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Discord Server</a></li>
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Us</a></li>
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">FAQ</a></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Discord Server</Link></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact Us</Link></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">FAQ</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-4">Legal</h3>
                             <ul className="space-y-3">
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Privacy Policy</a></li>
-                                <li><a href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Terms of Service</a></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
+                                <li><Link href="#" className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Terms of Service</Link></li>
                             </ul>
                         </div>
                     </div>

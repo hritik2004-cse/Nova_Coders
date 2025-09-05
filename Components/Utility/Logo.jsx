@@ -1,23 +1,31 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Logo = ({ className = '' }) => {
-    const baseClasses = 'font-bold tracking-wider transition-opacity duration-300 ease-in-out hover:opacity-80';
+    const baseClasses = 'flex items-center gap-2 md:gap-3 font-bold tracking-wider transition-all duration-300 ease-in-out hover:opacity-80 hover:scale-105';
 
-    const responsiveClasses = 'text-2xl md:text-3xl';
+    const logoClasses = 'w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain';
 
-    const gradientTextClasses = 'bg-gradient-to-r from-blue-600 to-sky-400 dark:to-[#64ffda] text-transparent bg-clip-text';
+    // Matching your logo colors: cyan blue gradient with white accents
+    const textClasses = 'text-lg sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-cyan-400 via-sky-500 to-cyan-400 dark:from-cyan-300 dark:via-sky-400 dark:to-cyan-300 text-transparent bg-clip-text';
 
-    const bracketClasses = 'text-blue-600 dark:text-[#64ffda]';
-
-    const combinedClasses = `${baseClasses} ${responsiveClasses} ${className}`;
+    const combinedClasses = `${baseClasses} ${className}`;
 
     return (
-        <a href="/" className={combinedClasses} aria-label="Navigate to homepage">
-            <span className={bracketClasses}>&lt;</span>
-            <span className={gradientTextClasses}>Nova Coders</span>
-            <span className={bracketClasses}>/&gt;</span>
-        </a>
+        <Link href="/" className={combinedClasses} aria-label="Navigate to homepage">
+            <Image 
+                src="/logo.png" 
+                alt="Nova Coders Logo" 
+                width={64} 
+                height={64} 
+                className={logoClasses}
+                priority
+            />
+            <span className={textClasses}>Nova Coders</span>
+        </Link>
     );
+
 };
 
 export default Logo;

@@ -4,11 +4,26 @@ import GradientButton from './Utility/GradientButton';
 import StatsBar from './Utility/StatsBar';
 import AnimatedCircle, { CirclePresets, ColorPresets, DelayPresets } from './Utility/AnimatedCircle';
 import Globe from './Utility/Globe';
-import { FiArrowRight, FiUsers } from 'react-icons/fi';
+import { AuthModal } from './AuthModal';
+import { useAuthModal } from '@/hooks/useAuthModal';
+import { useAuth } from '@/lib/auth-context';
+import { FiArrowRight, FiUsers, FiLogIn, FiUser } from 'react-icons/fi';
 import { Skeleton } from '@/Components/ui/skeleton';
 
 const HeroSection = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const { user, isAuthenticated } = useAuth();
+    const {
+        showLoginModal,
+        showSignupModal,
+        currentModal,
+        openLoginModal,
+        openSignupModal,
+        closeModals,
+        switchToLogin,
+        switchToSignup,
+        isAuthenticated: modalAuthState,
+    } = useAuthModal();
 
     // Simulate loading time for demo purposes
     useEffect(() => {
@@ -132,29 +147,57 @@ const HeroSection = () => {
                                 </div>
                             ) : (
                                 <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 md:gap-5 lg:gap-6 w-full max-w-lg lg:max-w-xl xl:max-w-2xl animate-fade-in-up px-4 lg:px-0" style={{ animationDelay: '0.6s' }}>
-                                    <GradientButton href="#" size="lg" className="gap-2 w-full sm:w-auto whitespace-nowrap">
-                                        Join Now <FiArrowRight className="w-4 h-4" />
-                                    </GradientButton>
-                                    <a
-                                        href="/about"
-                                        className="py-3 md:py-3.5 lg:py-4 px-6 md:px-7 lg:px-8 rounded-full text-sm md:text-base font-bold backdrop-blur-sm border transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap shadow-lg"
-                                        style={{
-                                            backgroundColor: 'var(--bg)',
-                                            color: 'var(--text)',
-                                            borderColor: 'var(--highlight)',
-                                            borderWidth: '2px'
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.target.style.backgroundColor = 'var(--highlight)';
-                                            e.target.style.color = 'var(--bg-light)';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.target.style.backgroundColor = 'var(--bg)';
-                                            e.target.style.color = 'var(--text)';
-                                        }}
-                                    >
-                                        View Community <FiUsers className="w-4 h-4" />
-                                    </a>
+                                    {isAuthenticated ? (
+                                        <>
+                                            {/* Welcome Message for Authenticated User */}
+                                            <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                                                <div className="flex items-center gap-3 py-3 md:py-3.5 lg:py-4 px-6 md:px-7 lg:px-8 rounded-full text-sm md:text-base font-bold backdrop-blur-sm border shadow-lg"
+                                                    style={{
+                                                        backgroundColor: 'var(--bg)',
+                                                        color: 'var(--text)',
+                                                        borderColor: 'var(--highlight)',
+                                                        borderWidth: '2px'
+                                                    }}
+                                                >
+                                                    <FiUser className="w-5 h-5 text-green-600" />
+                                                    <span>Welcome back, {user?.firstName || user?.username}!</span>
+                                                </div>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                                    You're now part of the Nova Coders community
+                                                </p>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <button
+                                                onClick={openSignupModal}
+                                                className="py-3 md:py-3.5 lg:py-4 px-6 md:px-7 lg:px-8 rounded-full text-sm md:text-base font-bold backdrop-blur-sm border transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap shadow-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-transparent"
+                                            >
+                                                Join Now <FiArrowRight className="w-4 h-4" />
+                                            </button>
+                                            
+                                            <button
+                                                onClick={openLoginModal}
+                                                className="py-3 md:py-3.5 lg:py-4 px-6 md:px-7 lg:px-8 rounded-full text-sm md:text-base font-bold backdrop-blur-sm border transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 w-full sm:w-auto whitespace-nowrap shadow-lg"
+                                                style={{
+                                                    backgroundColor: 'var(--bg)',
+                                                    color: 'var(--text)',
+                                                    borderColor: 'var(--highlight)',
+                                                    borderWidth: '2px'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.target.style.backgroundColor = 'var(--highlight)';
+                                                    e.target.style.color = 'var(--bg-light)';
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.target.style.backgroundColor = 'var(--bg)';
+                                                    e.target.style.color = 'var(--text)';
+                                                }}
+                                            >
+                                                Login <FiLogIn className="w-4 h-4" />
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -185,6 +228,16 @@ const HeroSection = () => {
                     animationDelay="0.9s"
                 />
             </div>
+
+            {/* Auth Modal */}
+            <AuthModal
+                showLoginModal={showLoginModal}
+                showSignupModal={showSignupModal}
+                currentModal={currentModal}
+                onClose={closeModals}
+                onSwitchToLogin={switchToLogin}
+                onSwitchToSignup={switchToSignup}
+            />
         </section>
     );
 };

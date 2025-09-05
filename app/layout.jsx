@@ -96,14 +96,6 @@ export default function RootLayout({ children }) {
         {/* DNS prefetch for performance */}
         <link rel="dns-prefetch" href="//api.emailjs.com" />
         
-        {/* Critical CSS inline (move critical styles here if needed) */}
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            body { margin: 0; padding: 0; }
-            .loading-skeleton { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-            @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
-          `
-        }} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

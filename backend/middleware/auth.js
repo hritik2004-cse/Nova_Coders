@@ -6,10 +6,10 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-key-change-this-
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'admin';
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH; // We'll generate this
 
-// Default admin credentials (you should change these)
+// Default admin credentials - MUST be changed in production
 const DEFAULT_ADMIN = {
-    username: 'admin',
-    password: 'admin123' // This will be hashed
+    username: process.env.ADMIN_USERNAME || 'admin',
+    password: process.env.DEFAULT_ADMIN_PASSWORD || 'CHANGE_THIS_PASSWORD'
 };
 
 // Generate password hash for admin
