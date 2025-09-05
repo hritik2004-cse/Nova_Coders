@@ -42,6 +42,16 @@ test-*.html
 # env files (can opt-in for committing if needed)
 .env*
 
+# MongoDB database files (never commit database files)
+/data/
+data/
+**/data/db/
+mongodb-data/
+*.lock
+WiredTiger*
+journal/
+diagnostic.data/
+
 # Admin and security sensitive files
 *ADMIN*.md
 *RBAC*.md
